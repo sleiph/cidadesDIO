@@ -19,7 +19,7 @@ Projeto original de [André Luis Gomes](https://github.com/andrelugomes).
 * [Postgres Docker Hub](https://hub.docker.com/_/postgres)
 
 ```shell script
-docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres_user_city -e POSTGRES_PASSWORD=super_password -e POSTGRES_DB=cities postgres
+docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=super_password -e POSTGRES_DB=cities postgres
 ```
 
 ### Populate
@@ -31,9 +31,9 @@ cd ~/workspace/sql-paises-estados-cidades/PostgreSQL
 
 docker run -it --rm --net=host -v $PWD:/tmp postgres /bin/bash
 
-psql -h localhost -U postgres_user_city cities -f /tmp/pais.sql
-psql -h localhost -U postgres_user_city cities -f /tmp/estado.sql
-psql -h localhost -U postgres_user_city cities -f /tmp/cidade.sql
+psql -h localhost -U postgres cities -f /tmp/pais.sql
+psql -h localhost -U postgres cities -f /tmp/estado.sql
+psql -h localhost -U postgres cities -f /tmp/cidade.sql
 
 psql -h localhost -U postgres_user_city cities
 
@@ -52,7 +52,7 @@ CREATE EXTENSION earthdistance;
 ```shell script
 docker exec -it cities-db /bin/bash
 
-psql -U postgres_user_city cities
+psql -U postgres cities
 ```
 
 ### Query Earth Distance
