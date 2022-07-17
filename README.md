@@ -1,4 +1,7 @@
-# Cities API
+# Cidades API DIO 🏙
+
+Construindo uma API Rest de consulta de cidades do Brasil do zero até a produção. Parte do bootcamp de Java Developer da [DIO](https://web.dio.me/).
+Projeto original de [André Luis Gomes](https://github.com/andrelugomes).
 
 ## Requirements
 
