@@ -9,6 +9,8 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 import org.springframework.data.geo.Point;
 
+import java.util.Objects;
+
 
 @Entity
 @Table(name = "cidade")
@@ -72,4 +74,35 @@ public class City {
   public Point getLocation() {
     return location;
   }
+
+  @Override
+  public String toString() {
+    return "City{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", uf=" + uf +
+            ", ibge=" + ibge +
+            ", geolocation='" + geolocation + '\'' +
+            ", location=" + location +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    City city = (City) o;
+    return Objects.equals(id, city.id) &&
+            Objects.equals(name, city.name) &&
+            Objects.equals(uf, city.uf) &&
+            Objects.equals(ibge, city.ibge) &&
+            Objects.equals(geolocation, city.geolocation) &&
+            Objects.equals(location, city.location);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, uf, ibge, geolocation, location);
+  }
+
 }

@@ -3,6 +3,7 @@ package com.github.ricardoal.states.entities;
 import com.github.ricardoal.countries.entities.Country;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -73,7 +74,34 @@ public class State {
     return country;
   }
 
-  /*public Integer getCountryId() {
-      return countryId;
-  }*/
+  @Override
+  public String toString() {
+    return "State{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", uf='" + uf + '\'' +
+            ", ibge=" + ibge +
+            ", country=" + country +
+            ", ddd=" + ddd +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    State state = (State) o;
+    return Objects.equals(id, state.id) &&
+            Objects.equals(name, state.name) &&
+            Objects.equals(uf, state.uf) &&
+            Objects.equals(ibge, state.ibge) &&
+            Objects.equals(country, state.country) &&
+            Objects.equals(ddd, state.ddd);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, uf, ibge, country, ddd);
+  }
+
 }

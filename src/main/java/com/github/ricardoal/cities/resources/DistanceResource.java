@@ -41,4 +41,5 @@ public class DistanceResource {
     log.info("byMath");
     return service.distanceUsingMath(city1, city2, unit);
   }
+
 }

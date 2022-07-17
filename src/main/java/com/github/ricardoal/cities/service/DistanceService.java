@@ -102,4 +102,5 @@ public class DistanceService {
 
     return earthRadius.getValue() * c;
   }
+
 }
